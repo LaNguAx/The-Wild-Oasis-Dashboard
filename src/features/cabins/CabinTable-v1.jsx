@@ -5,7 +5,6 @@ import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
 import { useAlert } from "../../hooks/myUseAlert";
 import { useEffect } from "react";
-import { useCabins } from "./useCabins";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -32,7 +31,14 @@ const TableHeader = styled.header`
 `;
 
 export default function CabinTable() {
-  const { isLoading, cabins } = useCabins();
+  const {
+    isPending: isLoading,
+    data: cabins,
+    error,
+  } = useQuery({
+    queryKey: ["cabins"],
+    queryFn: getCabins,
+  });
 
   if (isLoading) return <Spinner />;
 
