@@ -57,7 +57,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Breakfast price">
+      <FormRow label="Break fast price">
         <Input
           type="number"
           id="breakfast-price"
